@@ -37,8 +37,6 @@ setup(
         'console_scripts': [
             'camera_viewer = px4_vision_autonomy.nodes.camera_viewer:main',
             'aruco_detector = px4_vision_autonomy.nodes.aruco_detector:main',
-            'vision_controller = px4_vision_autonomy.nodes.vision_controller:main',
-            'mavsdk_bridge = px4_vision_autonomy.nodes.mavsdk_bridge:main',
             'mission_commander = px4_vision_autonomy.nodes.mission_commander:main',
         ],
     },
