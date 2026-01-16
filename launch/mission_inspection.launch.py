@@ -7,16 +7,16 @@ from launch_ros.actions import Node
 def generate_launch_description():
     pkg_share = get_package_share_directory('px4_vision_autonomy')
     models_dir = os.path.join(pkg_share, 'models')
-    world_file = os.path.join(pkg_share, 'worlds', 'inspection.sdf')
+    # world_file = os.path.join(pkg_share, 'worlds', 'inspection.sdf')
     
     # PX4 Directory
     px4_dir = os.path.expanduser('~/PX4-Autopilot')
     
-    # Environment Variables for Gazebo
-    # We set both Classic and New Gazebo paths to be safe
+ 
     env = os.environ.copy()
     
     # Add user's local gazebo models
+    # user_gazebo_models = os.path.expanduser('/home/mrrobot/.gazebo/models') # for my CI
     user_gazebo_models = os.path.expanduser('~/.gazebo/models')
 
     if 'GAZEBO_MODEL_PATH' in env:
@@ -35,6 +35,8 @@ def generate_launch_description():
     world_name = 'inspection'
     env['PX4_SITL_WORLD'] = world_name
     env['PX4_GZ_WORLD'] = world_name
+    # env['PX4_GZ_WORLD'] = world_file  # Tried using full path, but sitl_gazebo requires just the name
+    # env['GZ_SIM_RESOURCE_PATH'] += ':' + os.path.dirname(world_file) # attempted resource path fix
 
     # PX4 Command
     # We use gz_x500_mono_cam_down for downward facing camera
