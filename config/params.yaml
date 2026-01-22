@@ -1,0 +1,21 @@
+aruco_detector:
+  ros__parameters:
+    camera_topic: "/camera"
+    marker_size: 0.2  # meters
+    marker_id: 0
+    camera_matrix: [320.0, 0.0, 320.0, 0.0, 320.0, 240.0, 0.0, 0.0, 1.0] # Approximate for 640x480
+    dist_coeffs: [0.0, 0.0, 0.0, 0.0, 0.0]
+
+vision_controller:
+  ros__parameters:
+    kp_x: 0.5
+    kp_y: 0.5
+    kp_z: 0.3
+    target_altitude: 2.0
+    descent_speed: 0.2
+    landing_threshold: 0.1 # meters
+    center_deadband: 10 # pixels
+
+mavsdk_bridge:
+  ros__parameters:
+    system_address: "udp://:14540"
