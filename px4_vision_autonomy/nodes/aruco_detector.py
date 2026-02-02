@@ -63,7 +63,11 @@ class ArucoDetector(Node):
         
         # ArUco setup
         self.aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
-        self.aruco_params = cv2.aruco.DetectorParameters()
+        # Create detector parameters in a way that's compatible across OpenCV versions
+        if hasattr(cv2.aruco, 'DetectorParameters_create'):
+            self.aruco_params = cv2.aruco.DetectorParameters_create()
+        else:
+            self.aruco_params = cv2.aruco.DetectorParameters()
         
         # Check for OpenCV 4.7+ API
         if hasattr(cv2.aruco, 'ArucoDetector'):
