@@ -3,25 +3,24 @@
 <package format="3">
   <name>px4_vision_autonomy</name>
   <version>0.0.1</version>
-  <description>A ROS2 Humble package for PX4 offboard control with computer vision</description>
+  <description>A ROS2 Jazzy package for PX4 offboard control with computer vision</description>
   <maintainer email="user@example.com">User</maintainer>
   <license>MIT</license>
 
+  <buildtool_depend>ament_python</buildtool_depend>
   <depend>rclpy</depend>
   <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>cv_bridge</depend>
   <depend>std_msgs</depend>
-  
-  <exec_depend>ros2launch</exec_depend>
-  <exec_depend>mavsdk</exec_depend>
-  <exec_depend>opencv-python</exec_depend>
+
+  <!-- Runtime python packages are declared in setup.py (pip). Keep ros package deps here. -->
   <exec_depend>ros_gz_bridge</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
+  <test_depend>pytest</test_depend>
 
   <export>
     <build_type>ament_python</build_type>

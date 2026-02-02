@@ -26,11 +26,11 @@ setup(
     version='0.0.1',
     packages=[package_name, package_name + '.nodes'],
     data_files=data_files,
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'mavsdk', 'opencv-contrib-python', 'numpy'],
     zip_safe=True,
     maintainer='User',
     maintainer_email='user@example.com',
-    description='A ROS2 Humble package for PX4 offboard control with computer vision',
+    description='A ROS2 Jazzy package for PX4 offboard control with computer vision',
     license='MIT',
     tests_require=['pytest'],
     entry_points={
